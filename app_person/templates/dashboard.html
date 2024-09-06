@@ -1,0 +1,51 @@
+
+{% extends "layout.html" %}
+
+{% block body %}
+<h3>Dashboard</h3>
+<hr>
+<p>
+    Welcome, <small>{{request.user.username}}</small>
+</p>
+<hr>
+<a class = "btn btn-danger" href = "{% url 'contact:addcontact' %}">Add Contact </a>
+<hr>
+{% if persons %}
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">id</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Telephone Number</th>
+            <th scope="col">Update</th>
+            <th scope="col">Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for Person in persons %}
+          <tr>
+            <th scope="row">{{Person.id}}</th>
+            <td>{{Person.first_name}}</td>
+            <td>{{Person.last_name}}</td>
+            <td>{{Person.telephone_number}}</td>
+            <td><a href="{% url 'Person:update' id %}" class = "btn btn-danger">Update</a></td>
+            <td><a href="{% url 'Person:delete' id %}" class = "btn btn-danger">Delete</a> </td>
+              
+          </tr>
+          {% endfor %}
+          
+        </tbody>
+      </table>
+{% else %}
+
+<div class = "alert alert-danger">
+    You don't have contact right now.
+</div>
+
+{% endif %}
+
+
+
+{% endblock body %}
+

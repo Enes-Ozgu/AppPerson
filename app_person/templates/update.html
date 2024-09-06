@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+        <h3>Update contact</h3>
+        <p>You can update contact this page.</p>
+        <hr>
+        <form method = "post">  
+            {% csrf_token %}
+            
+            {{ form.as_p}}
+            
+            <br>
+            <button type = "submit" class = "btn btn-danger">Update contact </button>
+        </form>
+    </div>
+  </div>
+
+
+
+
+
+
+{% endblock body %}
+
+
+
+
+
+
+

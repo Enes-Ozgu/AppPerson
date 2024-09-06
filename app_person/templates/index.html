@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<div class="jumbotron text-center">
+        <h3>Welcome to App_Person</h3>
+
+        <p>You can save contacts on cloud. </p>
+
+       
+
+       
+
+
+</div>
+
+
+
+
+<p>
+        {% if request.user.is_authenticated %}
+                You logged in, {{request.user.username}}
+                
+        {% else %}
+                You didn't login.
+        {% endif %}
+
+</p>
+{% endblock body %}
+
+
+
+
+
+
+
